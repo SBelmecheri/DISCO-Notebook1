@@ -17,7 +17,7 @@ gone through many of the steps commonly used for treating, correcting and interp
 
 ## PART 0: Setting up directories and files.
 
-For the following exercises, you will need  the following files in one directory.
+For the following exercise, you will need  the following files in one directory.
 1. A file containing tree-ring d13C measurements. The filename is "LIL.txt"
 2. A file containing atmospheric 13C data. The filename is "ATM13C.txt"
 3. A file containing regional temperature data. The filename is "CRU_tt.txt"
@@ -44,7 +44,7 @@ If you see these files listed, you're ready to roll!
 import the raw tree ring d13C dataset:
 ```{r}
 # ABOUT THE CHRONOLOGY [LIL, Pinar de Lillo]: 
-# TIME 1901-2002. ELEVATION: 1600m a.s.l. LATITUDE: 43.05. LONGITUDE: -5.25. SPECIES: Pinus sylvestris.
+# TIME: 1901-2002. ELEVATION: 1600m a.s.l. LATITUDE: 43.05. LONGITUDE: -5.25. SPECIES: Pinus sylvestris.
 # STAND STRUCTURE: Open forest. ASPECT: NW. SLOPE: 28 degrees.
 
 # You will also need to ensure that the name of the file is correct.
@@ -55,7 +55,6 @@ TR13.ts <- ts(TR13,start=1900, frequency=1)
 
 #plot the raw data
 ts.plot(TR13.ts,ylab="d13C (permil.VPDB)",xlab="Years", col="#9C964A")
-
 ```
 Question 1: Observe the trend (directionality). What do you see?
 
@@ -97,8 +96,8 @@ Question 6: compare both trends (directionality, magnitude). Describe the simila
 ## PART 2: Correcting Tree Ring 13C raw Data
 
 As a consequence of industrialization, the isotopic composition of atmospheric CO2 has changed.
-Tree-ring raw d13C data have a trend related to a decline in atmospheric d13C related to burning of fossil fuels (enriched in 12C).
-This trend or effect is termed Suess Effect (Keeling, 1979) and should be removed before analyzing climate or ecophysiology of a tree ring d13C chronology.
+This change corresponds to a decline in atmospheric d13C related to burning of fossil fuels (enriched in 12C).
+This trend or effect is termed Suess Effect (Keeling, 1979), is recorded in tree-ring raw d13C data, and should therefore be removed before analyzing climate or ecophysiology of a tree ring d13C chronology.
 
 This correction can be made as follows:
 ```{r}
