@@ -13,11 +13,11 @@ There are a few questions throughout to catalyze understanding and critical thin
 The analysis is broken into 4 main parts (including 17 questions) - at the end you should have
 gone through many of the steps commonly used for treating, correcting and interpreting a d13C time series.
 
-
+You will need to download the R project from https://github.com/SBelmecheri/DISCO-Notebook1.git and to set your own working directory. Once you open the Notebook1.Rproj in R studio  you can open the Notebook1.Rmd file to proceed with this exercise.
 
 ## PART 0: Setting up directories and files.
 
-For the following exercise, you will need  the following files in one directory.
+For the following exercise, you will need the following files in one directory.
 1. A file containing tree-ring d13C measurements. The filename is "LIL.txt"
 2. A file containing atmospheric 13C data. The filename is "ATM13C.txt"
 3. A file containing regional temperature data. The filename is "CRU_tt.txt"
@@ -155,7 +155,7 @@ firstyear= 	firstyear / lastyear allows selecting a subset of the data.
 
 for co2 data, the Mauna Loa data from Keeling are included as a proxy in this package.
 
-However, these data have been updated and the most recent data are included in the Notebook (Belmecheri & Lavergne 2021):
+However, these data have been updated and the most recent data are included in this Rproject/Notebook (Belmecheri & Lavergne 2021):
 ```{r}
 #read/import atmospheric CO2 data and convert them to a time serie
 co2 <- ts(read.table("ATMCO2.txt", header=T),start=1901, frequency=1)
@@ -165,7 +165,7 @@ Apply the pin correction
 
 ```{r}
 TR13.corr.pin <- pin(c(1901:2002), TR13.corr, co2, alpha = 0.9, firstyear =1901, lastyear =2002)
-# Note you can rerun this function and set the plot.it argument as TRUE. This will allow you top see plots generated for the various steps of the PIN calculation
+# Note you can rerun this function and set the plot.it argument as TRUE. This will allow you top see plots generated for the various steps of the PIN calculation. You will need to hit return mulyiple times.
 # TR13.corr.pin <- pin(c(1901:2002), TR13.corr, co2, alpha = 0.9, firstyear =1901, lastyear =2002 , plot.it = TRUE, verbose = TRUE, tol = 0)
 ```
 
