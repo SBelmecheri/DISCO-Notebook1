@@ -3,15 +3,12 @@ title: "Correction and Interpretation of stable Carbon isotopes"
 output: html_notebook
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
-
 Isotope Dendrochronology
 Correction and Interpretation of stable Carbon isotopes
 COURSE: DISC, LTRR, UNIVERSITY OF ARIZONA. INSTRUCTORS: S. BELMECHERI & P. SZEJNER
 
-The following code and comments should further your experience to analyze/treat tree ring d13C data (including atmosphere and climate data) using R.
-This exercise relies upon raw tree-ring d13C measurements, atmospheric d13C measurements and instrumental climate data.
+The following code and comments should further your experience to analyze/treat tree ring d13C data (including atmosphere and climate data). This exercise relies upon raw tree-ring d13C measurements, atmospheric d13C measurements and instrumental climate data.
+
 There are a few questions throughout to catalyze understanding and critical thinking.
 The analysis is broken into 4 main parts (including 17 questions) - at the end you should have
 gone through many of the steps commonly used for treating, correcting and interpreting a d13C time series.
