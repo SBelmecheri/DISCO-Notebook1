@@ -1,0 +1,10 @@
+Package: pin
+Type: Package
+Title: Pre Industrial (PIN) correction of d13C vegetation isotope series for atmospheric pCO2 changes
+Version: 0.5
+Date: 2011-11-22
+Author: Sietse O. Los
+Maintainer: Sietse Los <s.o.los@swansea.ac.uk>
+Description:  PIN corrects the decline in tree ring stable isotope ratios (d13C) over the industrial period (> 1850) resulting from increased atmospheric CO2 levels using estimates of pre-industrial values for the internal (leaf) CO2 concentration (ci).
+License: GPL (>=2)
+LazyLoad: yes
