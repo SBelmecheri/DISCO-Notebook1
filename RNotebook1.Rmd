@@ -128,14 +128,13 @@ This is related to tree physiological response to these environmental variables 
 Tree ring d13C chronologies can be corrected for changes in the carbon dioxide content of the atmosphere.
 This allows analysis and interpretation of d13C variations and trends in response to climate variability/trends only.
 
-This correction, termed PIN correction (for preindustrial) corresponds to a statistical procedure that calculate 
-the d13C values that would have been obtained under pre-industrial conditions (pre-increase in atmospheric CO2)
+This correction, termed PIN correction (for preindustrial) corresponds to a statistical procedure that calculate the d13C values that would have been obtained under pre-industrial conditions (pre-increase in atmospheric CO2)
 This procedure has been published by McCarroll et al. 2008 [https://doi.org/10.1016/j.gca.2008.11.041]
 
 Apply the PIN correction to the raw d13C data:
 ```{r}
-# First install the PIN R package
-install.packages(pkgs="~/Documents/DISC/NOTEBOOK1/pin_0.5", repos = NULL, type = "source")
+# First install the PIN R package (change the pathway to your folder)
+install.packages(pkgs="pin_0.5", repos = NULL, type = "source")
 library(pin)
 
 ```
