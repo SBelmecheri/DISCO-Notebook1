@@ -11,7 +11,7 @@ The following code and comments should further your experience to analyze/treat 
 
 There are a few questions throughout to catalyze understanding and critical thinking. The analysis is broken into four main parts (including 17 questions). At the end, you should have gone through many of the steps commonly used for treating, correcting and, interpreting a d13C time series.
 
-You will need to download the R project from https://github.com/SBelmecheri/DISCO-Notebook1.git and set your own working directory. Once you open the Notebook1.Rproj in R studio you can open the Notebook1.Rmd file to proceed with this exercise.
+You will need to download the R project from https://github.com/SBelmecheri/DISCO-Notebook1.git and set your own working directory. Once you open the ```DISCO-Notebook1.Rproj``` in R studio you can open the ```RNotebook1.Rmd``` file to proceed with this exercise.
 
 ## PART 0: Setting up directories and files.
 
