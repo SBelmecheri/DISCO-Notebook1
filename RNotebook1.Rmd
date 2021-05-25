@@ -23,9 +23,6 @@ For the following exercise, you will need the following files in one directory.
 4. A file containing regional Vapor pressure deficit data. The filename is "CRU_vpd.txt"
 
 ```{r}
-# You will need to change the directory in R so that this is the working directory.
-# The command "setwd" is used for this as in the following line. You will need to change it to your working directory.
-setwd("~/Documents/DISC/NOTEBOOK1")
 
 # check the directory with the following line.
 # getwd()
