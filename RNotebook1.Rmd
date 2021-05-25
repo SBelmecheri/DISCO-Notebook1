@@ -215,9 +215,9 @@ barplot(avg.month.tt,las=3,ylim=c(0,20),ylab="Deg C",main="Average Monthly tempe
 
 ```
 
-Question 10: Do you observe a trend in the temperature record?
+Question 10: do you observe a trend in the temperature record?
 
-Question 11: Looking at the seasonality, describe the growing season conditions?
+Question 11: looking at the seasonality, describe the growing season conditions?
 
 ```{r}
 # repeat these steps for precipitation and VPD.
