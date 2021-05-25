@@ -336,12 +336,11 @@ Question 16: which correction would you use for an ecophysiological study.
 
 ## PART 4: Isotopic Discrimination as means to correct d13C
 
-We have seen above that d13C time series can be treated to remove the effect of declining atmospheric d13C and the effect of increasing atmospheric CO2 concentration (PIN). The Suess Correction is straightforward and necessary as it avoids artifactual trends in tree ring d13C. 
+We have seen above that the d13C time series can be treated to remove the effect of declining atmospheric d13C and the effect of increasing atmospheric CO2 concentration (PIN). The Suess Correction is straightforward and necessary as it avoids artifactual trends in tree ring d13C. 
 
 The PIN correction is a statistical treatment to remove the response of tree physiology to CO2, consequently it assumes that this response is bound by two defined stomatal conductance adjustments.
 
-
-Another way to treat the d13C data is to calculate isotopic discrimination. This takes care of the Suess effect and allows interpreting variation of the isotopic fractionation in term of photosynthesis processes and  availability of leaf internal CO2
+Another way to treat the d13C data is to calculate isotopic discrimination. This procedure takes care of the Suess effect and allows interpreting variation of the isotopic fractionation in term of photosynthesis processes and  availability of leaf internal CO2.
 
 Calculate the isotopic discrimination:
 ```{r}
@@ -363,7 +362,7 @@ mtext(side= 4, text = "D13C (permil.VPDB)", line = 2.5)
 
 ```
 
-Question 17: compare the d13C (tree rings d13C corrected from Suess effect) and D13C (isotopic discrimination). Describe the trends in terms of isotopic fractionation and associated physiological responses.
+Question 17: what is the difference between the d13C (tree rings d13C corrected from Suess effect) and D13C (isotopic discrimination). Describe the observed trends in terms of isotopic fractionation and associated physiological responses.
 
-Use the climate correlations investigated above to discuss how tree physiology is responding to changes in trends and variability of the climate factors and atmospheric CO2 concentration.
+Use the climate correlations investigated above to discuss how tree physiology responds to changes in trends and variability of the climate factors and atmospheric CO2 concentration.
 
