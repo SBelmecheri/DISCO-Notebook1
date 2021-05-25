@@ -266,14 +266,13 @@ barplot(TR13.corr_pp.correl[1,2:13],las=3,col=c("blue2"),ylab="Correlation", mai
 barplot(TR13.corr_vpd.correl[1,2:13],las=3,col=c("yellow"),ylab="Correlation", main="VPD", ylim=c(-0.5,0.5))
 ```
 
-Question 12: Describe the correlations between d13C and various months of the year/growing season.
+Question 12: describe the correlations between d13C and various months of the year/growing season.
 
-Question 13: Do you observe similarities/differences in the d13C response to the seasonality of the climate variables?
+Question 13: do you observe similarities/differences in the d13C response to the seasonality of the climate variables?
 
-Tree growth and physiology respond to climate variation often over a variety of months. When we are investigating the climate signal recorded in d13C or reconstructing climate, 
-we often try to understand the climate response better by checking correlations over a wide variety of seasons. This is most easily done by averaging months together and computing correlations. 
+Tree growth and physiology respond to climate variation often over several months.Therefore, when investigating the climate signal recorded in d13C or reconstructing climate, we often try to better understand climate response by checking correlations over a wide variety of seasons. This is most easily done by averaging months together and computing correlations.  
 
-An example with March through June temperatures is shown below using the "rowMeans" command. This command removes the time-series information so we need to add this back with the "ts" command.
+An example with March through June temperatures is shown below using the ```"rowMeans()"``` function. Unfortunately, this function removes the time-series information so we need to add this back with the ```"ts()"``` function.
 Below this is shown in two steps overwriting the initial variable (tt.Mar_Jun)  instead of defining a new one.
 ```{r}
 tt.Mar_Jun <- rowMeans(gridded.tt.data[,c(3,4,5,6)])
