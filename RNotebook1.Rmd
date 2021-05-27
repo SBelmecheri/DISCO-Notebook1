@@ -3,9 +3,11 @@ title: "Correction and Interpretation of stable Carbon isotopes"
 output: html_notebook
 ---
 
-Isotope Dendrochronology
-Correction and Interpretation of stable Carbon isotopes
-COURSE: DISC, LTRR, UNIVERSITY OF ARIZONA. INSTRUCTORS: S. BELMECHERI & P. SZEJNER
+##### Isotope Dendrochronology
+##### Correction and Interpretation of stable Carbon isotopes
+##### COURSE: DISC, LTRR, UNIVERSITY OF ARIZONA. INSTRUCTORS: S. BELMECHERI & P. SZEJNER
+
+#### Instructions 
 
 The following code and comments should further your experience to analyze/treat tree ring d13C data (including atmosphere and climate data). This exercise relies upon raw tree-ring d13C measurements, atmospheric d13C measurements, and instrumental climate data.
 
