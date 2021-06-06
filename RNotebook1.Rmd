@@ -9,7 +9,7 @@ output: html_notebook
   
 ### Instructions:
   
-  The following code and comments should further your experience to analyze/treat tree ring d13C data (including atmosphere and climate data). This exercise relies upon raw tree-ring d13C measurements, atmospheric d13C measurements, and instrumental climate data.
+The following code and comments should further your experience to analyze and treat tree ring d13C data (including atmosphere and climate data). This exercise relies upon raw tree-ring d13C measurements, atmospheric d13C measurements, and instrumental climate data.
 
 There are a few questions throughout to catalyze understanding and critical thinking. The analysis is broken into four main parts (including 17 questions). At the end, you should have gone through many of the steps commonly used for treating, correcting and, interpreting a d13C time series.
 
@@ -17,19 +17,18 @@ You will need to download the R project from https://github.com/SBelmecheri/DISC
 
 ## PART 0: Setting up directories and files.
 
-For the following exercise, you will need the following files in one directory.
-1. A file containing tree-ring d13C measurements. The filename is "LIL.txt"
-2. A file containing atmospheric 13C data. The filename is "ATM13C.txt"
-3. A file containing regional temperature data. The filename is "CRU_tt.txt"
-4. A file containing regional precipitation data. The filename is "CRU_PP.txt"
-4. A file containing regional Vapor pressure deficit data. The filename is "CRU_vpd.txt"
+For the following exercise, you will need the following files in one directory:    
+1. A file containing tree-ring d13C measurements. The filename is "LIL.txt".  
+2. A file containing atmospheric 13C data. The filename is "ATM13C.txt".  
+3. A file containing regional temperature data. The filename is "CRU_tt.txt".  
+4. A file containing regional precipitation data. The filename is "CRU_PP.txt".  
+4. A file containing regional Vapor pressure deficit data. The filename is "CRU_vpd.txt".  
 
 ```{r}
 # check the directory with the following line.
 # getwd()
 
-# You should see the above file names (and anything else in this directory) when you 
-# type (or copy and paste) the following line:
+# You should see the above file names (and anything else in this directory) when you type (or copy and paste) the following line:
 list.files()
 ```
 
@@ -37,15 +36,15 @@ If you see these files listed, you're ready to roll!
 
 ## PART 1: Importing, plotting, and assessing raw tree-ring isotope data [d13C] & Atmospheric Data
 
-ABOUT THE CHRONOLOGY [LIL, Pinar de Lillo]: 
-* TIME: 1901-2002. 
-* ELEVATION: 1600m a.s.l. 
-* LATITUDE: 43.05. 
-* LONGITUDE: -5.25. 
-* SPECIES: Pinus sylvestris.
-* STAND STRUCTURE: Open forest. 
-* ASPECT: NW. 
-* SLOPE: 28 degrees.
+ABOUT THE CHRONOLOGY [LIL, Pinar de Lillo]:   
+* TIME: 1901-2002.   
+* ELEVATION: 1600m a.s.l.   
+* LATITUDE: 43.05.   
+* LONGITUDE: -5.25.   
+* SPECIES: Pinus sylvestris.  
+* STAND STRUCTURE: Open forest.   
+* ASPECT: NW.   
+* SLOPE: 28 degrees.  
 
 Import the tree ring d13C dataset:
 ```{r}
