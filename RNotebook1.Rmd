@@ -198,7 +198,7 @@ gridded.tt.data <- ts(read.table("CRU_TT.txt",header=T),start=1901,frequency=1)
 gridded.pp.data <- ts(read.table("CRU_PP.txt",header=T),start=1901,frequency=1)
 
 # import gridded VPD data & Convert to a time series 
-gridded.vpd.data <- ts(read.csv("CRU_vpd.csv",header=F, skip=3),start=1901,frequency=1)
+gridded.vpd.data <- ts(read.csv("CRU_VPD.txt",header=F, skip=3),start=1901,frequency=1)
 
 ```
 
@@ -318,7 +318,7 @@ TR13.corr.pin_tt.seasons.correl <- cor(TR13.corr.pin_tt.seasons,use="p")
 # do the same for precipitation and vpd
 ```
 
-### Suess vs PIN corrections
+### Suess vs. PIN corrections
 Compare the correlations coefficient and seasonality between Suess and PIn d13C:
 ```{r}
 # you can use a correlation matrix plot
