@@ -4,7 +4,6 @@ output: html_notebook
 ---
   
 #### Isotope Dendrochronology
-#### Correction and Interpretation of stable Carbon isotopes
 #### COURSE: DISC, LTRR, UNIVERSITY OF ARIZONA. INSTRUCTORS: S. BELMECHERI & P. SZEJNER
   
 ### Instructions:
@@ -55,15 +54,15 @@ TR13 <- read.table("LIL.txt", header=T)
 TR13.ts <- ts(TR13,start=1900, frequency=1)
 
 #plot the raw data
-ts.plot(TR13.ts,ylab="d13C (permil.VPDB)",xlab="Years", col="#9C964A")
+ts.plot(TR13.ts,ylab="d13C (permill.VPDB)",xlab="Years", col="#9C964A")
 ```
 Question 1: Observe the trend (directionality). What do you see?
 
 Look more closely at various time windows:
 ```{r}
 layout(matrix(1:2,nrow = 1, ncol = 2,byrow = T), widths = c(3,3),heights = c(3,3),respect = TRUE)
-ts.plot(TR13.ts,ylab="d13C (permil.VPDB)",xlab="Years",xlim=c(1900,1960), col="#9C964A",lty=1, lwd=2)
-ts.plot(TR13.ts,ylab="d13C (permil.VPDB)",xlab="Years",xlim=c(1960,2002), col="#9C964A",lty=3,lwd=2)
+ts.plot(TR13.ts,ylab="d13C (permill.VPDB)",xlab="Years",xlim=c(1900,1960), col="#9C964A",lty=1, lwd=2)
+ts.plot(TR13.ts,ylab="d13C (permill.VPDB)",xlab="Years",xlim=c(1960,2002), col="#9C964A",lty=3,lwd=2)
 ```
 
 Question 2: Do you observe a difference between various time windows?
@@ -77,27 +76,27 @@ ATM13 <- read.table("ATM13C.txt", header=T)
 #convert to a time-series object
 ATM13.ts <- ts(ATM13,start=1900,frequency=1)
 
-#plot  the atmospheric d13C dataset
-ts.plot(ATM13.ts,ylab="d13C (permil.VPDB)",xlab="Years")
+#plot the atmospheric d13C dataset
+ts.plot(ATM13.ts,ylab="d13C (permill.VPDB)",xlab="Years")
 ```
 
-Question 4: observe the trend (directionality) and interannual variability. What do you see?
+Question 4: Observe the trend (directionality) and interannual variability. What do you see?
 
 ```{r}
 # plot the raw tree ring d13C dataset and the atmospheric d13C dataset
 layout(matrix(1:2,nrow = 1, ncol = 2,byrow = T), widths = c(3,3),heights = c(3,3),respect = TRUE)
-ts.plot(TR13.ts,ylab="d13C (permil.VPDB)",xlab="Years", col="#9C964A",main="TREE RINGS")
-ts.plot(ATM13.ts,ylab="d13C (permil.VPDB)",xlab="Years", main="ATMOSPHERE")
+ts.plot(TR13.ts,ylab="d13C (permill.VPDB)",xlab="Years", col="#9C964A",main="TREE RINGS")
+ts.plot(ATM13.ts,ylab="d13C (permill.VPDB)",xlab="Years", main="ATMOSPHERE")
 ```
 
-Question 5: describe the difference between absolute tree ring and atmospheric d13C values. What drives this difference?
+Question 5: Describe the difference between absolute tree ring and atmospheric d13C values. What drives this difference?
 
-Question 6: compare both trends (directionality, magnitude). Describe the similarities/differences.
+Question 6: Compare both trends (directionality, magnitude). Describe the similarities/differences.
 
 ## PART 2: Correcting Tree Ring 13C raw Data
-
+### Suess Effect
 As a consequence of industrialization, the isotopic composition of atmospheric CO2 has changed.  
-This change corresponds to a decline in atmospheric d13C related to burning of fossil fuels (enriched in 12C and/or low in 13c). This trend or effect is termed Suess Effect (Keeling, 1979), is recorded in tree-ring raw d13C data, and should therefore be removed before analyzing climate or ecophysiology of a tree ring d13C chronology.
+This change corresponds to a decline in atmospheric d13C related to burning of fossil fuels (enriched in 12C and/or low in 13C). This trend or effect is termed Suess Effect (Keeling, 1979), is recorded in tree-ring raw d13C data, and should therefore be removed before analyzing climate or ecophysiology of a tree ring d13C chronology.
 
 This correction can be made as follows:
 ```{r}
@@ -105,33 +104,29 @@ TR13.corr <- TR13.ts -(ATM13.ts + 6.5)
 
 # the 6.5  corresponds to the  pre industrial atmospheric d13C value.
 # the correction factor (ATM13.ts + 6.5) is applied to express tree-ring d13C values relative
-# to a pre-industrial standard value of 6.5 permill i.e. remove the trend of 13C that result from a decline due to the Suess effect.
+# to a pre-industrial standard value of 6.5 permill i.e. remove the trend of 13C that result 
+# from a decline due to the Suess effect.
 
 ```
 
 Add the corrected tree ring data to the plot with the raw data:
 ```{r}
-ts.plot(TR13.ts,ylab="d13C (permil.VPDB)",xlab="Years", col="#9C964A")
+ts.plot(TR13.ts,ylab="d13C (permill.VPDB)",xlab="Years", col="#9C964A")
 lines (TR13.corr, col="#F21A00")
 legend("bottomleft",c("d13C raw", "d13C Suess"),lwd= c(1,1), bty = "n", col=c("#9C964A","#F21A00"),
        text.col=c("#9C964A","#F21A00"),ncol=1)
 
-# Note that you may need to adjust the limits of the Y axis to accommodate the values-range of raw and corrected 13C data
-# you can do that using ylim=c(,) to set min and max Y axis values.
+# Note that you may need to adjust the limits of the Y axis to accommodate the values-range of raw and corrected 13C data. You can do that using ylim=c(,) to set min and max Y axis values.
 ```
 
 Question 7: How does the corrected d13C compare to the raw d13C. 
 
+### CO~2~ Effect
+The correction of raw 13C tree ring from the Suess effect yields a d13C chronology that contains two signals: atmospheric CO2 and climate. These signals are related to tree physiological response to these environmental variables as was reviewed in the stable isotope theory lectures.
 
-The correction of raw 13C tree ring from the Suess effect yields a d13C chronology that contains two signals: atmospheric CO2 and climate.
-These signals are related to tree physiological response to these environmental variables as was reviewed in the stable isotope theory lectures.
+Tree-ring d13C chronologies can be corrected for changes in the carbon dioxide content of the atmosphere. This allows analysis and interpretation of d13C variations and trends in response to climate variability/trends only.
 
-Tree-ring d13C chronologies can be corrected for changes in the carbon dioxide content of the atmosphere.
-
-This allows analysis and interpretation of d13C variations and trends in response to climate variability/trends only.
-
-This correction, termed PIN correction (for pre-industrial) corresponds to a statistical procedure that calculates the d13C values that would have been obtained under pre-industrial conditions (pre-increase in atmospheric CO2)
-This procedure has been published by McCarroll et al. 2008 [https://doi.org/10.1016/j.gca.2008.11.041]
+This correction, termed PIN correction (for pre-industrial) corresponds to a statistical procedure that calculates the d13C values that would have been obtained under pre-industrial conditions (pre-increase in atmospheric CO2). This procedure has been published by McCarroll et al. 2008 [https://doi.org/10.1016/j.gca.2008.11.041]
 
 Apply the PIN correction to the raw d13C data:
 ```{r}
@@ -166,18 +161,18 @@ co2 <- ts(read.table("ATMCO2.txt", header=T),start=1901, frequency=1)
 
 Apply the pin correction:
 
-After running this line,  yo will have to go to the console in R  and  pres  
+After running this line,  yo will have to go to the console in R  and  press  
 ```Hit <Return> to see next plot```
 ```{r}
   
 TR13.corr.pin <- pin(c(1901:2002), TR13.corr, co2, alpha = 0.9, firstyear =1901, lastyear =2002)
-# Note you can rerun this function and set the plot.it argument as TRUE. This will allow you top see plots generated for the various steps of the PIN calculation. You will need to hit return multiple times.
+# Note: The function generates plots for the various steps of the PIN calculation. You will need to hit return multiple times. Looking carefully at the plots is advised as it demonstrates the theoretical assumptions and bounds of tree physiological responses to increases in atmospheric CO2 concentrations.
 ```
 
 
 Add the pin corrected tree ring data to the plot with the raw data and Suess corrected data:
 ```{r}
-ts.plot(TR13.ts,ylab="d13C (permil.VPDB)",xlab="Years", col="#9C964A")
+ts.plot(TR13.ts,ylab="d13C (permill.VPDB)",xlab="Years", col="#9C964A")
 lines(TR13.corr, col="#F21A00")
 lines(TR13.corr.pin, col="#E1AF00", lwd=1.3)
 legend("bottomleft",c("d13C raw", "d13C Suess", "d13C PIN"),lwd= c(1,1,1.3),bty = "n", col=c("#9C964A","#F21A00","#E1AF00"),
@@ -187,12 +182,13 @@ legend("bottomleft",c("d13C raw", "d13C Suess", "d13C PIN"),lwd= c(1,1,1.3),bty 
 
 ```
 
-Question 8: how does the PIN-corrected d13C compare to the Suess-corrected and raw d13C?
+Question 8: How does the PIN-corrected d13C compare to the Suess-corrected and raw d13C?
 
-Question 9: do you believe the differences between raw and corrected (SUESS, PIN) d13C are significant?
+Question 9: Do you believe the differences between raw and corrected (SUESS, PIN) d13C are significant?
 
 ## PART 3: Importing instrumental data and computing correlations with tree ring chronologies
 
+### Climatology of the growing season 
 climate data are from the Climatic Research Unit (CRU) for the grid point near the tree-ring data:
 ```{r}
 # import gridded temperature data & Convert to a time series 
@@ -202,11 +198,11 @@ gridded.tt.data <- ts(read.table("CRU_TT.txt",header=T),start=1901,frequency=1)
 gridded.pp.data <- ts(read.table("CRU_PP.txt",header=T),start=1901,frequency=1)
 
 # import gridded VPD data & Convert to a time series 
-gridded.vpd.data <- ts(read.table("CRU_VPD.txt",header=F, skip=3),start=1901,frequency=1)
+gridded.vpd.data <- ts(read.csv("CRU_vpd.csv",header=F, skip=3),start=1901,frequency=1)
 
 ```
 
-Explore the climate data (seasonality, trends). Below is an example for Temperature:
+Explore the climate data (seasonality, trends) for all climate parameters. Below is an example for Temperature:
 ```{r}
 # plot temperatures for all months with a legend
 ts.plot(gridded.tt.data,col=1:8,lty=1:3,xlim=c(1870,2002))
@@ -222,15 +218,15 @@ barplot(avg.month.tt,las=3,ylim=c(0,20),ylab="Deg C",main="Average Monthly tempe
 
 ```
 
-Question 10: do you observe a trend in the temperature record?
+Question 10: Do you observe a trend in the temperature, precipitation and VPD records?
 
-Question 11: looking at the seasonality, describe the growing season conditions?
+Question 11: Looking at the seasonality, describe the growing season conditions?
 
 ```{r}
 # repeat these steps for precipitation and VPD.
 ```
 
-Correlation between tree ring d13C and climate data: 
+### Correlation between tree ring d13C and climate data
 
 combine (here a multiple time series object) the tree ring d13C and instrumental data in the same data matrix for correlations.
 
@@ -240,8 +236,8 @@ TR13.corr_tt <- ts.union(TR13.corr,gridded.tt.data) # temperature;
 colnames(TR13.corr_tt) <- c("TR13.corr", colnames(gridded.tt.data))
 TR13.corr_pp <- ts.union(TR13.corr,gridded.pp.data) # precipitation; 
 colnames(TR13.corr_pp) <- c("TR13.corr", colnames(gridded.tt.data))
-#TR13.corr_vpd <- ts.union(TR13.corr,gridded.vpd.data) # vapor pressure deficit
-
+TR13.corr_vpd <- ts.union(TR13.corr,gridded.vpd.data) # vapor pressure deficit
+colnames(TR13.corr_vpd) <- c("TR13.corr", colnames(gridded.vpd.data))
 ```
 Compute a correlation matrix for temperature:
 ```{r}
@@ -273,32 +269,27 @@ barplot(TR13.corr_pp.correl[1,2:13],las=3,col=c("blue2"),ylab="Correlation", mai
 barplot(TR13.corr_vpd.correl[1,2:13],las=3,col=c("yellow"),ylab="Correlation", main="VPD", ylim=c(-0.5,0.5))
 ```
 
-Question 12: describe the correlations between d13C and various months of the year/growing season.
+Question 12: Describe the correlations between d13C and various months of the year/growing season.
 
-Question 13: do you observe similarities/differences in the d13C response to the seasonality of the climate variables?
+Question 13: Do you observe similarities/differences in the d13C response to the seasonality of the climate variables?
 
 Tree growth and physiology respond to climate variation often over several months.Therefore, when investigating the climate signal recorded in d13C or reconstructing climate, we often try to better understand climate response by checking correlations over a wide variety of seasons. This is most easily done by averaging months together and computing correlations.  
 
-An example with March through June temperatures is shown below using the ```"rowMeans()"``` function. Unfortunately, this function removes the time-series information so we need to add this back with the ```"ts()"``` function.
-Below this is shown in two steps overwriting the initial variable (tt.Mar_Jun)  instead of defining a new one.
+An example with March through June temperatures is shown below using the ```"rowMeans()"``` function. This function removes the time-series information so we need to add this back with the ```"ts()"``` function.
+
+Below is a two-steps example for overwriting the initial variable (tt.Mar_Jun)  instead of defining a new one.
 ```{r}
 tt.Mar_Jun <- rowMeans(gridded.tt.data[,c(3,4,5,6)])
 tt.Mar_Jun <- ts(tt.Mar_Jun,start=1901,frequency =1)
 ```
 
-Other code for this would be:
-
-```{r}
-tt.Mar_Jun <- rowMeans(gridded.tt.data[,c("Mar","Apr","May","Jun")])
-tt.Mar_Jun <- rowMeans(gridded.tt.data[,3:6])
-```
 
 New seasonal windows can then be created for Winter, Spring, summer (June-July-August), or a growing season (e.g. April-September):
 ```{r}
 # Here create multiple seasonal windows for the climate parameters. 
 ```
 
-We can then combine this new seasons to our d13C and monthly temperature matrix. The example below can be enhanced with more season developed in the previous step
+We can then combine this new seasons to our d13C and monthly temperature matrix. The example below can be enhanced with more season developed in the previous step:
 ```{r}
 TR13.corr_tt.seasons <- ts.union(TR13.corr_tt, tt.Mar_Jun)
 ```
@@ -327,6 +318,7 @@ TR13.corr.pin_tt.seasons.correl <- cor(TR13.corr.pin_tt.seasons,use="p")
 # do the same for precipitation and vpd
 ```
 
+### Suess vs PIN corrections
 Compare the correlations coefficient and seasonality between Suess and PIn d13C:
 ```{r}
 # you can use a correlation matrix plot
@@ -336,9 +328,9 @@ Compare the correlations coefficient and seasonality between Suess and PIn d13C:
 
 Question 14: What do you observe? are there differences, improvement of the correlation coefficients? a change in the significant months?
 
-Question 15: which correction would you use for a climate reconstruction.
+Question 15: Which correction would you use for a climate reconstruction.
 
-Question 16: which correction would you use for an ecophysiological study.
+Question 16: Which correction would you use for an ecophysiological study.
 
 ## PART 4: Isotopic Discrimination as means to correct d13C
 
@@ -368,7 +360,7 @@ mtext(side= 4, text = "D13C (permil.VPDB)", line = 2.5)
 
 ```
 
-Question 17: what is the difference between the d13C (tree rings d13C corrected from Suess effect) and D13C (isotopic discrimination). Describe the observed trends in terms of isotopic fractionation and associated physiological responses.
+Question 17: What is the difference between the d13C (tree rings d13C corrected from Suess effect) and D13C (isotopic discrimination). Describe the observed trends in terms of isotopic fractionation and associated physiological responses.
 
 Use the climate correlations investigated above to discuss how tree physiology responds to changes in trends and variability of the climate factors and atmospheric CO2 concentration.
 
