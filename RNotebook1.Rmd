@@ -51,7 +51,7 @@ Import the tree ring d13C dataset:
 TR13 <- read.table("LIL.txt", header=T)
 
 #convert to a time-series object. 
-TR13.ts <- ts(TR13,start=1900, frequency=1)
+TR13.ts <- ts(TR13,start=1901, frequency=1)
 
 #plot the raw data
 ts.plot(TR13.ts,ylab="d13C (permill.VPDB)",xlab="Years", col="#9C964A")
@@ -61,7 +61,7 @@ Question 1: Observe the trend (directionality). What do you see?
 Look more closely at various time windows:
 ```{r}
 layout(matrix(1:2,nrow = 1, ncol = 2,byrow = T), widths = c(3,3),heights = c(3,3),respect = TRUE)
-ts.plot(TR13.ts,ylab="d13C (permill.VPDB)",xlab="Years",xlim=c(1900,1960), col="#9C964A",lty=1, lwd=2)
+ts.plot(TR13.ts,ylab="d13C (permill.VPDB)",xlab="Years",xlim=c(1901,1960), col="#9C964A",lty=1, lwd=2)
 ts.plot(TR13.ts,ylab="d13C (permill.VPDB)",xlab="Years",xlim=c(1960,2002), col="#9C964A",lty=3,lwd=2)
 ```
 
@@ -74,7 +74,7 @@ Import the atmospheric d13C dataset:
 ATM13 <- read.table("ATM13C.txt", header=T)
 
 #convert to a time-series object
-ATM13.ts <- ts(ATM13,start=1900,frequency=1)
+ATM13.ts <- ts(ATM13,start=1901,frequency=1)
 
 #plot the atmospheric d13C dataset
 ts.plot(ATM13.ts,ylab="d13C (permill.VPDB)",xlab="Years")
