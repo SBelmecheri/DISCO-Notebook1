@@ -198,7 +198,7 @@ gridded.tt.data <- ts(read.table("CRU_TT.txt",header=T),start=1901,frequency=1)
 gridded.pp.data <- ts(read.table("CRU_PP.txt",header=T),start=1901,frequency=1)
 
 # import gridded VPD data & Convert to a time series 
-gridded.vpd.data <- ts(read.csv("CRU_VPD.txt",header=F, skip=3),start=1901,frequency=1)
+gridded.vpd.data <- ts(read.table("CRU_VPD.txt",header=F, skip=3),start=1901,frequency=1)
 
 ```
 
